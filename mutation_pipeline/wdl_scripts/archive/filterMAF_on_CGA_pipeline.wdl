@@ -10,13 +10,13 @@ task filterMaf {
   Float maxPon_loglike
   Boolean onlyCoding
   Float minCoverage
-  File filtermaf_script
   Float minAltReads
   File TCGAhotspotMutFN
   Float TCGAhotspotMinCnt
   Float COSMIChotspotMinCnt
   File blackListFN
   File? intersectWithMafFN
+  File filtermaf_script
   String sample_id
 
   File addExAC_column
