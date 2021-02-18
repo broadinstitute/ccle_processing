@@ -1,5 +1,5 @@
 workflow filterMAF_for_CGA_workflow {
-    call filterMaf
+    call filterMaf {}
 }
 
 task filterMaf {
