@@ -12,6 +12,8 @@ MYSTORAGE_ID = "~/.storage.json"
 
 SHEETNAME = 'ccle sample tracker'
 
+GCS_PAYER_PROJECT = 'broad-firecloud-ccle'
+
 TAIGA_ETERNAL = 'depmap-a0ab'
 
 REFSHEET_URL = "https://docs.google.com/spreadsheets/d/1Pgb5fIClGnErEqzxpU7qqX6ULpGTDjvzWwDN8XUJKIY"
@@ -126,7 +128,7 @@ REPLACE = {'T': 'Tumor', 'N': 'Normal', 'm': 'Unknown', 'L': 'Unknown'}
 values = ['legacy_bam_filepath', 'legacy_bai_filepath'],
 
 filetypes = ['bam', 'bai']
-   
+
 MATCH=['ACH-', 'CDS-']
 
 ## old GP storage buckets
@@ -225,7 +227,7 @@ SOURCE_RENAME = {'CCLF': 'Broad', 'CHORDOMA': 'Chordoma',
                 np.nan: 'Broad', 'DEPMAP': 'Broad',
                 'IBM WES': "Broad WES", 'Broad CCLF': "Broad WES"}
 
-wrongwes_arxspan = {'ACH-001189', 'ACH-002303', 'ACH-002315', 'ACH-002341', 'ACH-001011', 
+wrongwes_arxspan = {'ACH-001189', 'ACH-002303', 'ACH-002315', 'ACH-002341', 'ACH-001011',
                     'ACH-001108', 'ACH-001187', 'ACH-002875', 'ACH-002874',
                     "ACH-001955",  # chordoma lines
                     "ACH-001956",
@@ -301,8 +303,8 @@ RNASEQC_THRESHOLDS_FAILED = {'minmapping': 0.7, 'minendmapping': 0.66, 'mineffic
                              "maxalt": 0.5, "maxchim": 0.2, "minreads": 20000000,
                              "minlength": 80, "maxgenes": 35000, "mingenes": 10000}
 
-PREVIOUS_QC_FAIL = ['CDS-12DTEw', 'CDS-9hv1zM', 'CDS-A6GSeQ', 'CDS-aWlMRt', 'CDS-B1ywOH', 'CDS-BixxtG', 
-                    'CDS-DRM3l2', 'CDS-jOlYT4', 'CDS-KMhiT9', 'CDS-M6mnMA', 'CDS-pYwECX', 'CDS-v6E624', 
+PREVIOUS_QC_FAIL = ['CDS-12DTEw', 'CDS-9hv1zM', 'CDS-A6GSeQ', 'CDS-aWlMRt', 'CDS-B1ywOH', 'CDS-BixxtG',
+                    'CDS-DRM3l2', 'CDS-jOlYT4', 'CDS-KMhiT9', 'CDS-M6mnMA', 'CDS-pYwECX', 'CDS-v6E624',
                     'CDS-vxTqNJ', 'CDS-YxtmkI',"CDS-fk564T","CDS-kU30H5","CDS-G0F5f5","CDS-ABH0uZ"]
 
 ###################### README

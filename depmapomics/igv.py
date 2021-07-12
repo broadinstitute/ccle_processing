@@ -1,6 +1,7 @@
 import igv
 from genepy.utils.helper import parrun
 from gsheets import Sheets
+from depmapomics.config import GCS_PAYER_PROJECT
 
 def get_gcloud_auth_token():
     parrun(["echo $(gcloud auth application-default print-access-token) > /tmp/gcloud_token"], cores=1)
@@ -58,6 +59,7 @@ class depmap_igv(igv.Browser):
     '''
 
     def __init__(self, config):
+        self.payer_project_uri_parameter = '?userProject='+GCS_PAYER_PROJECT
         super().__init__({**config, "oauthToken": get_gcloud_auth_token()})
         self.depmap_samples = load_sample_tracker()
 
@@ -68,8 +70,8 @@ class depmap_igv(igv.Browser):
                 "name": '{} ({}): {}'.format(sample_info['arxspan_id'],
                                              sample_info['stripped_cell_line_name'],
                                              sample_info['datatype']),
-                "url": sample_info['{}_bam'.format(self.config['genome'])],
-                'indexURL': sample_info['{}_bai'.format(self.config['genome'])],
+                "url": sample_info['{}_bam'.format(self.config['genome'])]+self.payer_project_uri_parameter,
+                'indexURL': sample_info['{}_bai'.format(self.config['genome'])]+self.payer_project_uri_parameter,
                 "format": fileformat
             })
 
