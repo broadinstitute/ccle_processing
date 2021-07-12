@@ -254,7 +254,7 @@ def CCLEPostProcessing(wesrefworkspace=WESCNWORKSPACE, wgsrefworkspace=WGSWORKSP
                        my_id=MY_ID, mystorage_id=MYSTORAGE_ID,
                        sheetcreds=SHEETCREDS, sheetname=SHEETNAME,
                        refsheet_url=REFSHEET_URL, todrop=KNOWN_DROP,
-                       prevgenecn=tc.get(name=TAIGA_ETERNAL, file='CCLE_gene_cn'),
+                       prevgenecn='ccle',
                        taiga_dataset=TAIGA_CN, dataset_description=CNreadme,
                        subsetsegs=[SAMPLEID, 'Chromosome',
                                    'Start', 'End', 'Segment_Mean',
@@ -285,7 +285,9 @@ def CCLEPostProcessing(wesrefworkspace=WESCNWORKSPACE, wgsrefworkspace=WGSWORKSP
       procqc ([type], optional): [description]. Defaults to PROCQC.
       source_rename ([type], optional): [description]. Defaults to SOURCE_RENAME.
   """
-  print('new')
+  if prevgenecn is 'ccle':
+    prevgenecn = tc.get(name=TAIGA_ETERNAL, file='CCLE_gene_cn')
+
   sheets = Sheets.from_files(my_id, mystorage_id)
   tracker = sheets.get(refsheet_url).sheets[0].to_frame(index_col=0)
 

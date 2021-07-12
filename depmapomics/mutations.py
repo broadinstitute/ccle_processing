@@ -139,7 +139,7 @@ def CCLEPostProcessing(wesrefworkspace=WESMUTWORKSPACE, wgsrefworkspace=WGSWORKS
                        refsheet_url=REFSHEET_URL,
                        taiga_description=Mutationsreadme, taiga_dataset=TAIGA_MUTATION,
                        mutation_groups=MUTATION_GROUPS,
-                       prev=tc.get(name=TAIGA_ETERNAL, file='CCLE_mutations'),
+                       prev='ccle',
                        minfreqtocall=0.05,
                        **kwargs):
   """the full CCLE mutations post processing pipeline (used only by CCLE)
@@ -161,6 +161,8 @@ def CCLEPostProcessing(wesrefworkspace=WESMUTWORKSPACE, wgsrefworkspace=WGSWORKS
       prev ([type], optional): [description]. Defaults to tc.get(name=TAIGA_ETERNAL, file='CCLE_mutations').
       minfreqtocall (float, optional): [description]. Defaults to 0.05.
   """  
+  if prev == 'ccle':
+    prev = tc.get(name=TAIGA_ETERNAL, file='CCLE_mutations')
   if doCleanup:
     #TODO:
     val = ""

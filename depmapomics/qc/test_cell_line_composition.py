@@ -1,5 +1,5 @@
 from gsheets import Sheets
-from depmapomics.qc.utils import get_cell_line_set as gcl
+from depmapomics.qc.archive import get_cell_line_set as gcl
 import pickle
 import pandas as pd
 

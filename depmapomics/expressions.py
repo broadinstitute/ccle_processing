@@ -395,8 +395,7 @@ def CCLEPostProcessing(refworkspace=rnaworkspace, samplesetname=SAMPLESETNAME, r
                                   "genes_tpm": "CCLE_expression_full",
                                   "proteincoding_genes_tpm": "CCLE_expression"},
                        sheetname=SHEETNAME, sheetcreds=SHEETCREDS, todrop=KNOWN_DROP,
-                       prevcounts=tc.get(name=TAIGA_ETERNAL,
-                                         file='CCLE_RNAseq_reads'),
+                       prevcounts='ccle',
                        taiga_dataset=TAIGA_EXPRESSION, minsimi=0.95, dropNonMatching=True,
                        dataset_description=RNAseqreadme, **kwargs):
   """the full CCLE Expression post processing pipeline (used only by CCLE)
@@ -424,6 +423,10 @@ def CCLEPostProcessing(refworkspace=rnaworkspace, samplesetname=SAMPLESETNAME, r
   Returns:
       [type]: [description]
   """
+
+  if prevcounts is "ccle":
+    prevcounts = tc.get(name=TAIGA_ETERNAL,
+           file='CCLE_RNAseq_reads')
 
   sheets = Sheets.from_files(my_id, mystorage_id)
   ccle_refsamples = sheets.get(refsheet_url).sheets[0].to_frame(index_col=0)

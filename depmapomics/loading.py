@@ -704,6 +704,10 @@ def load(samplesetname, workspaces,
   samples = assessAllSamples(
       samples, ccle_refsamples, stype=stype, rename={}, extract=extract_defaults)
 
+  # converting date to str
+  samples[extract_defaults['release_date']] = [h.inttodate(i) for i in
+      samples[extract_defaults['release_date']]]
+
   if len(noarxspan) > 0:
     print("we found "+str(len(noarxspan))+" samples without arxspan_ids!!")
     noarxspan = noarxspan.sort_values(by = 'stripped_cell_line_name')

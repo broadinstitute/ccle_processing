@@ -175,8 +175,7 @@ def CCLEPostProcessing(refworkspace=RNAWORKSPACE, samplesetname=SAMPLESETNAME,
                       fusionSamplecol=SAMPLEID, refsheet_url=REFSHEET_URL,  todrop=KNOWN_DROP,
                       taiga_dataset=TAIGA_FUSION, dataset_description=FUSIONreadme,
                       my_id=MY_ID, mystorage_id=MYSTORAGE_ID,
-                      prevdataset=tc.get(name=TAIGA_ETERNAL,
-                                  file='CCLE_fusions_unfiltered'),
+                      prevdataset='ccle',
                       **kwargs):
   """the full CCLE Fusion post processing pipeline (used only by CCLE)
 
@@ -193,6 +192,9 @@ def CCLEPostProcessing(refworkspace=RNAWORKSPACE, samplesetname=SAMPLESETNAME,
       mystorage_id ([type], optional): [description]. Defaults to MYSTORAGE_ID.
       prevdataset ([type], optional): [description]. Defaults to tc.get(name=TAIGA_ETERNAL, file='CCLE_fusions_unfiltered').
   """
+  if prevdataset is 'ccle':
+    prevdataset = tc.get(name=TAIGA_ETERNAL,
+           file='CCLE_fusions_unfiltered')
   sheets = Sheets.from_files(my_id, mystorage_id)
   ccle_refsamples = sheets.get(refsheet_url).sheets[0].to_frame(index_col=0)
   

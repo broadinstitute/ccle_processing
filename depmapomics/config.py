@@ -29,6 +29,8 @@ SAMPLESETNAME = "21Q2"
 
 RELEASE = SAMPLESETNAME
 
+isCCLE = True
+
 PREV_VIRTUAL = {}
 
 #20Q3
@@ -79,13 +81,13 @@ TO_UPDATE = {'primary_disease': ['Primary Disease'],
             'subtype': ['lineage_subtype'],
             'subsubtype': ['lineage_sub_subtype'],
             'origin': ['lineage'],
-            'source': ['Program'],
+            #'source': ['Flagship'],
             'parent_cell_line': ["Parental ID"],
             'comments': ['Comments'],
             'mediatype': ['Culture Medium', 'Culture Type'],
             'stripped_cell_line_name': ['Stripped Cell Line Name'],
             "cellosaurus_id": ["RRID"],
-             "age": ["CCLF Age"]}
+            "age": ["CCLF Age"]}
 
 MAXAGE = '2021-02-01'
 
